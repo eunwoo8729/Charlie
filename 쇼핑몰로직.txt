@@ -1,0 +1,139 @@
+***MVC 패턴으로 만드는 쇼핑몰***
+1. 개발을 위한 설정.(DB ConnectionPool)
+  : context.xml, web.xml
+    KH0701/oracle : 
+    KH0702/oracle : 
+    KH0703/oracle : 
+    KH0704/oracle : 
+    KH0704/oracle : 
+2. 회원 시스템 구현(관리자모드)
+ : 테이블 생성(member, zipcode)
+ : MemberBean
+ : MemberDAO
+ : 회원에 관련된 Action 클래스 구현
+	[Action.java]
+	[ActionForward.java]
+	[MemberJoinAction.java]
+	[MemberLoginAction.java]
+	[MemberModifyAction_1.java]
+	[MemberModifyAction_2.java]
+	[MemberDeleteAction.java]
+	[MemberFindAction.java]
+	[MemberIDCheckAction.java]
+	[MemberZipcodeAction.java]
+	[MemberFrontController.java]
+	[web.xml]
+ : View 페이지 작성
+	[member_join.jsp]
+	[member_login.jsp]
+	[member_idchk.jsp]
+	[member_find.jsp]
+	[member_find_ok.jsp]
+	[member_out.jsp]
+	[member_out_ok.jsp]
+	[member_zipcode.jsp]
+
+3. 상품 관리 시스템 구현
+ : 테이블 생성(goods)
+ : GoodsBean
+ : AdminGoodsDAO
+ : 상품 관리에 대한 Action 클래스
+	[Action.java]
+	[ActionForward.java]
+	[AdminGoodsListAction.java]
+	[AdminGoodsAddAction.java]
+	[AdminGoodsDeleteAction.java]
+	[AdminGoodsModifyAction.java]
+	[AdminGoodsModifyForm.java]
+	[AdminGoodsFrontController.java]
+ : web.xml
+ : View 페이지 작성
+	[admin_goods_list.jsp]
+	[admin_goods_write.jsp]
+	[admin_goods_modify.jsp]
+
+
+4. 상품 관련 시스템 구현(DISPLAY)
+ : GoodsBean
+ : GoodsDAO
+ : 상품 정보에 대한 Action 클래스 구현
+	[Action.java]
+	[ActionForward.java]
+	[GoodsListAction.java]
+	[GoodsDetailAction.java]
+	[GoodsFrontController.java]
+ : web.xml
+ : View 페이지 생성
+	[goods_list.jsp]
+	[goods_detail.jsp]
+
+5. 장바구니 시스템 구현
+ : 테이블 생성(basket)
+ : BasketBean
+ : BasketDAO
+ : 장바구니에 대한 Action 클래스 구현
+	[Action.java]
+	[ActionForward.java]
+	[BasketListAction.java]
+	[BasketAddAction.java]
+	[BasketDeleteAction.java]
+	[BasketFrontController.java]
+ : web.xml
+ : View 페이지 작성
+	[goods_basket.jsp]
+
+6. 주문 처리 시스템 구현
+ : 테이블 생성(GOODS_ORDER)
+ : OrderBean
+ : OrderDAO
+ : 주문 처리에 대한 Action 클래스 구현
+	[Action.java]
+	[ActionForward.java]
+	[OrderListAction.java]
+	[OrderStartAction.java]
+	[OrderAddAction.java]
+	[OrderFrontController.java]
+ : web.xml
+ : View 페이지 작성
+	[goods_buy.jsp]
+	[goods_order_ok.jsp]
+	[goods_my_order.jsp]
+
+7. 주문 관리 시스템 구현
+ : AdminOrderDAO
+ : 주문 관리에 대한 Action 클래스 구현
+	[Action.java]
+	[ActionForward.java]
+	[AdminOrderListAction.java]
+	[AdminOrderDetailAction.java]
+	[AdminOrderModifyAction.java]
+	[AdminOrderDeleteAction.java]
+	[AdminOrderFrontController.java]
+ : web.xml
+ : View 페이지 작성
+	[admin_order_list.jsp]
+	[admin_order_modify.jsp]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
