@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+<sqlMap namespace="join">
+
+	<typeAlias alias="join" type="member.JoinVO" />
+
+		<!-- 리절트 맵 정의 -->
+	  	<resultMap id="joinRes" class="join">
+		  	<result property="m_id" column="m_id"/>
+		  	<result property="m_pw" column="m_pw"/>
+		  	<result property="m_no" column="m_no"/>
+		  	<result property="m_name" column="m_name"/>
+		  	<result property="m_bd" column="m_bd"/>
+		  	<result property="m_jumin" column="m_jumin"/>
+		  	<result property="m_email" column="m_email"/>
+		  	<result property="m_phone" column="m_phone"/>
+		  	<result property="m_zipcode" column="m_zipcode"/>
+		  	<result property="m_addr1" column="m_adr1"/>
+		  	<result property="m_addr2" column="m_adr2"/>
+		</resultMap>
+		
+		<sql id="select-all">
+			select * from member
+		</sql>
+		<sql id="where-id">
+			where m_id = #m_id#
+		</sql>
+		
+
+		<select id="selectMemberOne" resultMap="joinRes" parameterClass="String">
+			select * from member
+			where m_id = #m_id#		
+		</select>
+		
+		<select id="IdCheckSelectOne" resultMap="joinRes" parameterClass="String">
+			select * from member
+			where m_id = #m_id#		
+		</select>
+		
+		<select id="EmailCheckSelectOne" resultMap="joinRes" parameterClass="String">
+			select * from member
+			where m_email = #m_email#		
+		</select>
+		
+		<select id="modifyselectOne" resultMap="joinRes" parameterClass="join">
+			SELECT * FROM member
+			WHERE m_id = #m_id#			
+		</select>
+		
+		<select id="DeleteMemberOne" resultMap="joinRes" parameterClass="join">
+			select * from member
+			where m_pw = #m_pw# and m_id = #m_id#		
+		</select>
+		
+		
+		
+	
+		<!-- insert 쿼리문 정의 -->
+		<insert id="insertjoin" parameterClass="join">
+		
+      		INSERT INTO member (
+      							M_ID,
+      							M_NAME,
+								M_PW,
+								M_NO,
+								M_BD,
+								M_EMAIL,
+								M_PHONE,
+								M_JUMIN,
+								M_ZIPCODE,
+								M_ADDR1,
+								M_ADDR2
+                         )
+               		 VALUES (
+                	 			#m_id#,
+                	 			#m_name#,
+								#m_pw#,
+								#m_no#,
+								#m_bd#,
+								#m_email#,
+								#m_phone#,
+								#m_zipcode#,
+								#m_addr1#,
+								#m_addr2#
+                         )
+		</insert>
+		
+		<update id="updateMember" parameterClass="join">
+    		UPDATE member SET
+    							 m_id = #m_id#,
+    							 m_name = #m_name#,
+                     		     m_pw = #m_pw#,
+                       		     m_no = #m_no#,
+                       		     m_bd = #m_bd#,
+                       		     m_email = #m_email#,
+                       		     m_phone = #m_phone#,
+                       		     m_zipcode = #m_zipcode#,
+                       		     m_addr1 = #m_addr1#,
+                       		     m_addr2 = #m_addr2#
+		WHERE m_id = #m_id#
+   		</update>
+   		
+   		<delete id="deleteJoin" parameterClass="join">
+			DELETE FROM member 
+			where m_pw = #m_pw# and m_id = #m_id#
+   		 </delete>
+
+</sqlMap>
